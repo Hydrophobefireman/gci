@@ -17,7 +17,7 @@ def check(port: int) -> int:
 def scan():
     scan_range = range(MAX_PORT + 1)
     for port in scan_range:
-        print(f"checking port {port}")
+        #print(f"checking port {port}")
         if check(port) == 0:
             yield port
 
