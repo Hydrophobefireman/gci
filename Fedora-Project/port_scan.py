@@ -1,5 +1,5 @@
 import socket
-from threading import Thread
+#from threading import Thread
 scan_ip = socket.gethostbyname('localhost')  # 127.0.0.1
 
 MAX_PORT = 65535
