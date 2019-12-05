@@ -6,6 +6,7 @@ const svg1 = new Image();
 const allLoaded = Promise.all([svg0, svg1].map(x => nextEvent(x, "load")));
 let loaded = false;
 const imgs = ["0-svg", "1-svg"].map(getSrc);
+const imgLen = imgs.length;
 svg0.src = imgs[0];
 svg1.src = imgs[1];
 
@@ -42,7 +43,7 @@ export class WelcomeImages extends Component {
       h(
         "div",
         { class: "container", style: { marginBottom: "50px" } },
-        Array.from({ length: 3 }).map((_, i) =>
+        Array.from({ length: imgLen }).map((_, i) =>
           h(
             "div",
             null,
@@ -70,6 +71,7 @@ function ImageAnimate(props) {
     Fragment,
     null,
     h("img", {
+      alt: text,
       class: "animated-img",
       src
     }),

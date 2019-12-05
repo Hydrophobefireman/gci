@@ -93,6 +93,7 @@ function BookMarkLink(props) {
     "div",
     { class: "bookmarked-element" },
     h("img", {
+      alt: "favicon for:" + url,
       src: faviconLink(url),
       style: { width: "20px", height: "20px" },
       onError: e => (e.target.src = NO_SRC)
@@ -107,6 +108,7 @@ function FormatURL(props) {
   const u = new URL(url);
   const domain = u.hostname;
   const proto = h("img", {
+    alt: u.protocol,
     style: { height: "20px", width: "20px" },
     src: u.protocol === "https:" ? SAFE_PROTO_IMG : UNSAFE_IMG
   });
