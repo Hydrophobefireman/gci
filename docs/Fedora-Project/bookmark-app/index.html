@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>BookMarks | Fedora Project | Google Code-in</title>
+    <link rel="stylesheet" href="./css/app.css" />
+    <meta
+      name="img-NO_SRC"
+      content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6Ii8+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg=="
+    />
+    <meta
+      name="img-SAFE_PROTO_IMG"
+      content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48ZyBmaWxsPSJub25lIiBzdHlsZT0iJiMxMDsiPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMFYweiIvPjxwYXRoIG9wYWNpdHk9Ii44NyIgZD0iTTAgMGgyNHYyNEgwVjB6Ii8+PC9nPjxwYXRoIGQ9Ik0xOCA4aC0xVjZjMC0yLjc2LTIuMjQtNS01LTVTNyAzLjI0IDcgNnYySDZjLTEuMSAwLTIgLjktMiAydjEwYzAgMS4xLjkgMiAyIDJoMTJjMS4xIDAgMi0uOSAyLTJWMTBjMC0xLjEtLjktMi0yLTJ6bS02IDljLTEuMSAwLTItLjktMi0ycy45LTIgMi0yIDIgLjkgMiAyLS45IDItMiAyek05IDhWNmMwLTEuNjYgMS4zNC0zIDMtM3MzIDEuMzQgMyAzdjJIOXoiIGZpbGw9IiMwMEI1MDAiLz48L3N2Zz4="
+    />
+    <meta
+      name="img-UNSAFE_IMG"
+      content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDBWMHoiLz48cGF0aCBkPSJNMTIgMTNjLTEuMSAwLTIgLjktMiAycy45IDIgMiAyIDItLjkgMi0yLS45LTItMi0yem02LTVoLTFWNmMwLTIuNzYtMi4yNC01LTUtNS0yLjI4IDAtNC4yNyAxLjU0LTQuODQgMy43NS0uMTQuNTQuMTggMS4wOC43MiAxLjIyLjUzLjE0IDEuMDgtLjE4IDEuMjItLjcyQzkuNDQgMy45MyAxMC42MyAzIDEyIDNjMS42NSAwIDMgMS4zNSAzIDN2Mkg2Yy0xLjEgMC0yIC45LTIgMnYxMGMwIDEuMS45IDIgMiAyaDEyYzEuMSAwIDItLjkgMi0yVjEwYzAtMS4xLS45LTItMi0yem0wIDExYzAgLjU1LS40NSAxLTEgMUg3Yy0uNTUgMC0xLS40NS0xLTF2LThjMC0uNTUuNDUtMSAxLTFoMTBjLjU1IDAgMSAuNDUgMSAxdjh6Ii8+PC9zdmc+"
+    />
+    <meta
+      name="img-0-svg"
+      content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMFYweiIvPjxwYXRoIGQ9Ik0xNyAzSDdjLTEuMSAwLTIgLjktMiAydjE2bDctMyA3IDNWNWMwLTEuMS0uOS0yLTItMnptMCAxNWwtNS0yLjE4TDcgMThWNWgxMHYxM3oiLz48L3N2Zz4="
+    />
+    <meta
+      name="img-1-svg"
+      content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMFYweiIvPjxwYXRoIG9wYWNpdHk9Ii4zIiBkPSJNNyAxNy45N2w1LTIuMTUgNSAyLjE1VjVIN3oiLz48cGF0aCBkPSJNMTcgM0g3Yy0xLjEgMC0yIC45LTIgMnYxNmw3LTMgNyAzVjVjMC0xLjEtLjktMi0yLTJ6bTAgMTQuOTdsLTUtMi4xNC01IDIuMTRWNWgxMHYxMi45N3oiLz48L3N2Zz4="
+    />
+    <link
+      rel="preload"
+      href="https://fonts.pycode.tk/open-sans.css"
+      onload="this.rel='stylesheet'"
+      as="style"
+    />
+
+    <link rel="modulepreload" href="./js/components/onboarding.js" />
+    <link rel="modulepreload" href="./js/components/img.js" />
+    <link rel="modulepreload" href="./js/components/bookmarksapp.js" />
+    <link rel="modulepreload" href="./js/components/animated_input.js" />
+    <link rel="modulepreload" href="./js/util.js" />
+    <link rel="modulepreload" href="./js/storage-manager.js" />
+  </head>
+  <body>
+    <main class="app"></main>
+    <script type="module" src="./js/app.js"></script>
+    <script nomodule>
+      document.querySelector("main").textContent =
+        "Your Browser Does not Support ESModules.";
+    </script>
+  </body>
+</html>
