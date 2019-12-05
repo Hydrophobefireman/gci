@@ -65,7 +65,7 @@ class AddBookMarkComponent extends Component {
   handleSubmit() {
     let url = this.state.value;
     try {
-      url = new URL(url).toString();
+      url = getURL(url);
     } catch (e) {
       return this.setState({ hasError: true });
     }
@@ -123,3 +123,11 @@ function FormatURL(props) {
 }
 
 const faviconLink = url => "https://" + new URL(url).hostname + "/favicon.ico";
+
+function getURL(url) {
+  try {
+    return new URL(url).toString();
+  } catch (e) {
+    return new URL("http://" + url).toString();
+  }
+}
