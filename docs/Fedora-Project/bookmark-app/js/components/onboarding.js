@@ -18,7 +18,7 @@ export class OnBoarding extends Component {
   }
   componentDidMount() {
     if (this.state.seenOnBoarding.ts) {
-      return loadURL(window.pathname + "/app");
+      return loadURL(window.pathname + "app");
     }
   }
 }
