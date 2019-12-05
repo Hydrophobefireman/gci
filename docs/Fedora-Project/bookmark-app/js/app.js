@@ -1,11 +1,12 @@
 import { h, render, Router, absolutePath } from "./@ui/ui-lib.modern.js";
 import { OnBoarding } from "./components/onboarding.js";
 import { BookMarksApp } from "./components/bookmarksapp.js";
+const path = location.pathname;
 const App = h(
   Router,
   null,
-  h(OnBoarding, { path: absolutePath("/") }),
-  h(BookMarksApp, { path: absolutePath("/app") })
+  h(OnBoarding, { path: absolutePath(path) }),
+  h(BookMarksApp, { path: absolutePath(path + "app") })
 );
 
 render(App, document.querySelector("main"));
