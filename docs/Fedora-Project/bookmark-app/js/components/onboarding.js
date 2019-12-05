@@ -11,14 +11,14 @@ export class OnBoarding extends Component {
   _update() {
     const obj = { ts: +new Date() };
     setJson(ONBOARDING, obj);
-    loadURL("/app");
+    loadURL(window.pathname + "app");
   }
   render() {
     return h(WelcomeImages, { update: this._update });
   }
   componentDidMount() {
     if (this.state.seenOnBoarding.ts) {
-      return loadURL("/app");
+      return loadURL(window.pathname + "/app");
     }
   }
 }
