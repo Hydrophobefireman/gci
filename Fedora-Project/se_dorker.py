@@ -36,8 +36,6 @@ def scrape_google(query: str, pages=1) -> list:
     for url in _urls:
         page = sess.get(url, headers=basic_headers)
         _results_class = "rc"
-        _webcache_class = "fl"
-        _description_class = "st"
         soup = bs(page.text, "html.parser")
         _results = soup.find_all(attrs={"class": _results_class})
         for res in _results:
@@ -55,12 +53,58 @@ def scrape_google(query: str, pages=1) -> list:
     return results
 
 
-def show_results(*args, **kwargs):
-    resp = scrape_google(*args, **kwargs)
+def scrape_bing(query, pages=1):
+    results = []
+    start = 0
+    _urls = []
+    for j in range(pages):
+        i = j + 1
+        if i == 1:
+            bing_base = "https://www.bing.com/search?q={q}".format(q=quote_plus(query))
+        else:
+            start += 10
+            bing_base = "https://www.bing.com/search?q={q}&first={start}".format(
+                q=quote_plus(query), start=start
+            )
+        _urls.append(bing_base)
+
+    _results_class = "b_algo"
+    sess = requests.Session()
+    for url in _urls:
+        page = sess.get(url, headers=basic_headers)
+        soup = bs(page.text, "html.parser")
+        _results = soup.find_all(attrs={"class": _results_class})
+        for res in _results:
+            _link = (
+                res.findChild("a") if res.findChild("a").parent.name[0] == "h" else None
+            )
+            if _link is None:
+                _link = res.findChild("cite")
+                if _link is None:
+                    raise Exception("No Links Found on page 1 of search results")
+                link = _link.text
+                heading = link
+            else:
+                link = _link.attrs.get("href")
+                heading = _link.text
+            results.append({"link": link, "heading": heading})
+    return results
+
+
+def print_res(resp: list):
     for i, d in enumerate(resp):
         link = d.get("link")
         page_title = d.get("page_title")
         print(f"{i+1}. URL: {link}\n{show_title_if_exists(page_title)}")
+
+
+def show_results(*args, **kwargs):
+    print("---GOOGLE---")
+    resp = scrape_google(*args, **kwargs)
+    print_res(resp)
+    print("\n\n---BING---")
+    resp_bing = scrape_bing(*args, **kwargs)
+    print_res(resp_bing)
 
 
 def show_title_if_exists(page_title):
