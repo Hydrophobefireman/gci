@@ -16,5 +16,7 @@ The web server is configured to display the list of files contained in this dire
 ## Sources
 
 [https://www.netsparker.com/blog/web-security/disable-directory-listing-web-servers/](https://www.netsparker.com/blog/web-security/disable-directory-listing-web-servers/)
+
 [https://www.netsparker.com/blog/web-security/disable-directory-listing-web-servers/](https://www.netsparker.com/blog/web-security/disable-directory-listing-web-servers/)
+
 [https://www.hacksplaining.com/prevention/directory-traversal](https://www.hacksplaining.com/prevention/directory-traversal
