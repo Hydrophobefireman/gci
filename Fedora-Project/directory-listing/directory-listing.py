@@ -21,16 +21,28 @@ def absolute_url(relative, base):
     return urljoin(base, relative)
 
 
+def get_links_raw(soup: bs) -> list:
+    print("Couldn't find index <table>...looking for all <a> tags")
+    title = soup.title
+    text = ""
+    if title:
+        text = title.text
+    if "indexof" in text.lower().replace(" ", ""):
+        return soup.find_all("a")
+    return []
+
+
 def scrape(url=None):
     if url is None:
         url = input("enter URL:")
+    print("Scraping URL:", url)
     soup = get_soup(url)
-    links = get_links(soup)
-    if len(links):
+    links = get_links(soup) or get_links_raw(soup)
+    if links:
         print("Links Found:")
         for i, link in enumerate(links):
             href = absolute_url(link.attrs.get("href"), url)
-            print(f"{i}. {href}")
+            print(f"{i+1}. {href}")
     else:
         print("No Links found, check the page again")
 
